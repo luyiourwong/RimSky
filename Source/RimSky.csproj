@@ -32,19 +32,32 @@
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Analyze|AnyCPU' ">
+      <OutputPath>..\Assemblies</OutputPath>
+    </PropertyGroup>
     <ItemGroup>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
     </ItemGroup>
-    <ItemGroup Condition="'$(Configuration)' != 'CI'">
+    <ItemGroup Condition="'$(Configuration)' != 'Analyze'">
         <Reference Include="Assembly-CSharp">
             <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="UnityEngine">
             <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' == 'Analyze'">
+        <Reference Include="Assembly-CSharp">
+            <HintPath>\home\luyiourwong\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>\home\luyiourwong\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
             <Private>False</Private>
         </Reference>
     </ItemGroup>
