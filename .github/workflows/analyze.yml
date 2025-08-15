@@ -16,6 +16,7 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Build and analyze
         env:
+          PATH: $HOME/.dotnet/tools:$PATH
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet-sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
