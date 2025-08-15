@@ -44,7 +44,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build
+          dotnet build Source/RimSky.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
   deploy:
     name: Deploy
