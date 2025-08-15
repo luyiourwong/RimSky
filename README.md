@@ -1,4 +1,4 @@
-﻿[![Analyze and Deploy main branch](https://github.com/luyiourwong/RimSky/actions/workflows/deploy.yml/badge.svg)](https://github.com/luyiourwong/RimSky/actions/workflows/deploy.yml)
+﻿[![Release](https://github.com/luyiourwong/RimSky/actions/workflows/release.yml/badge.svg)](https://github.com/luyiourwong/RimSky/actions/workflows/release.yml)
 
 # RimSky
 
