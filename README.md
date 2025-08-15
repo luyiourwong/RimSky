@@ -1,4 +1,6 @@
-﻿# RimSky
+﻿[![Analyze and Deploy main branch](https://github.com/luyiourwong/RimSky/actions/workflows/deploy.yml/badge.svg)](https://github.com/luyiourwong/RimSky/actions/workflows/deploy.yml)
+
+# RimSky
 
 RimWorld mod provide air units base on Flight mechanics added in RimWorld 1.6.
 
