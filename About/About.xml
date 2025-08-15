@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+    <packageId>LuYiouRwong.RimSky</packageId>
+    <name>RimSky</name>
+    <author>Lu Yiou Rwong</author>
+    <description>Sky</description>
+    <supportedVersions>
+        <li>1.6</li>
+    </supportedVersions>
+    <modVersion>0.1.0</modVersion>
+</ModMetaData>
