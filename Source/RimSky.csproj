@@ -32,15 +32,6 @@
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'CI|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>none</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>..\Assemblies</OutputPath>
-        <DefineConstants>TRACE;CI</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-    </PropertyGroup>
     <ItemGroup>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>

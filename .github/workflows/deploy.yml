@@ -43,8 +43,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build Source/RimSky.sln --configuration CI
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.exclusions="**/Assemblies/**,**/RimWorldWin64_Data/**,**/UnityPlayer.dll" /d:sonar.cs.roslyn.ignoreIssues=true
+          dotnet build Source/RimSky.sln --configuration Release --verbosity minimal
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
   deploy:
     name: Deploy
