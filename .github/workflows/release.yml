@@ -7,8 +7,25 @@ permissions:
   contents: write
 
 jobs:
+  analyze:
+    name: Analyze
+    runs-on:
+      - self-hosted
+      - rimworld
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          dotnet-sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet build Source/RimSky.sln --configuration Analyze
+          dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
   release:
     name: Release
+    needs: analyze
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
