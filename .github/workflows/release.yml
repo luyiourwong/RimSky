@@ -38,7 +38,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.dotcover.reportsPaths=dotCover.Output.html
-          dotnet build Source/RimSky.sln –no-incremental
+          dotnet build Source/RimSky.sln -–no-incremental
           dotnet dotcover test --dcReportType=HTML
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
   
