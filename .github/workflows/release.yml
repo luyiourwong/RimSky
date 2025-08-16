@@ -29,36 +29,13 @@ jobs:
 
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
-        
-      - name: Verify RimWorld assemblies
-        run: |
-          $managedPath = "C:\Users\github\RimWorld\RimWorldWin64_Data\Managed"
-          $criticalFiles = @("Assembly-CSharp.dll", "UnityEngine.dll")
-          foreach ($file in $criticalFiles) {
-              $fullPath = Join-Path $managedPath $file
-              if (Test-Path $fullPath) {
-                  $fileInfo = Get-Item $fullPath
-                  Write-Host "file: $($fileInfo.Length) bytes"
-                  Write-Host "path $fullPath"
-                  try {
-                      [System.IO.File]::OpenRead($fullPath).Close()
-                      Write-Host "   readable"
-                  } catch {
-                      Write-Host "   read error: $($_.Exception.Message)"
-                  }
-              } else {
-                  Write-Host "file does not exist $fullPath"
-              }
-          }
-          $acl = Get-Acl $managedPath
-          Write-Host "owner: $($acl.Owner)"
 
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet sonarscanner begin /k:"luyiourwong_RimSky" /o:"luyiourwong" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          dotnet build Source/RimSky.sln --configuration Analyze --verbosity detailed
+          dotnet build Source/RimSky.sln
           dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
   
   release:
